@@ -4,34 +4,10 @@
 * Created:Sept 1, 2015
 * Source File: InputOutputMain.c
 */
- 
 #define BUFFER_SIZE 81
 #include <stdio.h>
-/*
-* Reads a maximum of bufferSize-1 characters into string
-*@param string pointer to string buffer
-*@param bufferSize the capacity of string in bytes
-*/
- 
-void readChars(char string[], int bufferSize){
-    char formatString [80];
-        sprintf(formatString, "%%%ds", bufferSize - 1);
-         
-        scanf(formatString, string);
-    
-}
- 
-/*
-* Reads a maximum of bufferSize-1 characters into string
-* @param string pointer to string buffer
-*/
- 
-void writeChars(char string[]){
-    int numChars = 0;
-    while(string[numChars])
-        putchar(string[numChars++]);
-}
- 
+void readChars(char string[], int bufferSize)
+void writeChars(char string[])
 int main(int srgc, char **argv){ 
     char string[BUFFER_SIZE]; 
     readChars(string, BUFFER_SIZE);
