@@ -16,21 +16,14 @@
 */
  
 int binaryToDecimal(char *binaryString){
-     
-int decimalNumber =0;
- 
-int i=0;
- 
-    while (binaryString[i]!= '\0') {
-         
-        decimalNumber *= 2;
-         
-        if (binaryString[i]=='1'){
-            ++decimalNumber;
-        }
-         
-        i++;
-         
-    }
-    return decimalNumber;
+ int decimalNumber =0;
+ int i=0;
+ while (binaryString[i]!= '\0') {
+  decimalNumber *= 2;
+  if (binaryString[i]=='1'){
+    ++decimalNumber;
+  }
+  i++;
+ }
+ return decimalNumber;
 }
