@@ -6,20 +6,20 @@ LC0:
   .text
   .global _main
 _main:
-  pushl %ebp			        # esp is now has the old ebp address
-  movl %esp, %ebp		      # ebp is now pointing at the same place with ebp old address
-  andl $-16, %esp		      # use -16 to align esp on the 16-bits system (+4 to move up/-4 to move down)
-  subl $32, %esp	      	# subtract 32 from the current address of esp 
-  movl 12(%ebp), %eax 	  # move ebp up 12 bits from the old ebp address, then dereferences ebp to grab the content of that place, and stores in register eax (-1)
-  addl $4, %eax			      # adding $4 to &eax (NOT THE VALUE)
-  movl (%eax), %eax		    # dereferences %eax (taking *-1*) copies that to &eax
-  movl %eax, (%esp)		    # copies &eax *-1* to the dereferences of (%esp), which is at the bottom of our stack frame
-  call _atoi			        # calling the function atoi_, which we will convert string "-1" to an integer "-1"
-  movl %eax, 24(%esp)	    # move esp up 24 bits, then dereferences esp, and copies &eax *-1* to the value of 24(%esp)   
-  cmpl $4, 24(%esp)		    # checks to see if (*-1* == 4?)
-  je L2					          # Not TRUE AT ALLLLLL!!! FALSEEEEE! U suck! go to line #18 since the statement is false
-  cmpl $6, 24(%esp)		    # checks to see if (*-1* <= 6?)
-  jle L3				          # YAY! It is TRUE! GO TO L3!!!
+  pushl %ebp			       # esp is now has the old ebp address
+  movl %esp, %ebp		     # ebp is now pointing at the same place with ebp old address
+  andl $-16, %esp		     # use -16 to align esp on the 16-bits system (+4 to move up/-4 to move down)
+  subl $32, %esp	       # subtract 32 from the current address of esp 
+  movl 12(%ebp), %eax 	 # move ebp up 12 bits from the old ebp address, then dereferences ebp to grab the content of that place, and stores in register eax (-1)
+  addl $4, %eax			     # adding $4 to &eax (NOT THE VALUE)
+  movl (%eax), %eax		   # dereferences %eax (taking *-1*) copies that to &eax
+  movl %eax, (%esp)		   # copies &eax *-1* to the dereferences of (%esp), which is at the bottom of our stack frame
+  call _atoi			       # calling the function atoi_, which we will convert string "-1" to an integer "-1"
+  movl %eax, 24(%esp)	   # move esp up 24 bits, then dereferences esp, and copies &eax *-1* to the value of 24(%esp)   
+  cmpl $4, 24(%esp)		   # checks to see if (*-1* == 4?)
+  je L2					         # Not TRUE AT ALLLLLL!!! FALSEEEEE! U suck! go to line #18 since the statement is false
+  cmpl $6, 24(%esp)		   # checks to see if (*-1* <= 6?)
+  jle L3				         # YAY! It is TRUE! GO TO L3!!!
   cmpl $9, 24(%esp)
   jg L3
 L2:
@@ -27,7 +27,7 @@ L2:
   addl $20, %eax
   movl %eax, 28(%esp)
   jmp L4
-L3:						           # HI! I'm L3
+L3:						          # HI! I'm L3
   cmpl $0, 24(%esp)		  # checks to see if (*-1* != 0?)
   jne L5				        # OFC! It is TRUE! We JUMP to L5!
   movl $44, 28(%esp)
