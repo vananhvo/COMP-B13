@@ -1,3 +1,10 @@
+/*
+*	This program mirrors the structure of "ifElseHW.s"
+*	@author: Vananh Vo
+*	Course: COMP B13 (FALL 2015)
+*	Professor: Halrold Mendoza
+*	Source: ifElseHW.c
+*/
 int main (int argc, char **argv){
 	int argument1 = atoi(argv[0]);
 	if (argument1 == 4){
