@@ -5,7 +5,7 @@ LC0:
 	.text
 	.global _main
 _main:
-	pushl	%ebp							#	Set up the Stack Frame *Prologue*
+	pushl	%ebp							#Set up the Stack Frame *Prologue*
 	movl	%esp,	%ebp				#	Set up the Stack Frame
 	andl	$-16,	%esp				#	Set up the Stack Frame
 	subl	$32,	%esp				#	Set up the Stack Frame
