@@ -1,5 +1,5 @@
-#
-
+#Create a C program that mirrors the structures of this assembly program
+#There are many ways to do this
 LC0:
 	.ascii "%d\12\0"
 	.text
