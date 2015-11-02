@@ -22,7 +22,7 @@ _main:
 	call	_atoi			# call _atoi
 	movl	%eax,	20(%esp)	# Copies (n2) of argv[2] @ebp-8/@esp+24 (below old %ebp)
 	movl	%24(%esp),	%eax	# Copies (n2) to %eax 
-	movl	%eax,	28(%esp)	# Copies %eax (n2) to (n1)  
+	movl	%eax,	28(%esp)	# Copies %eax (n2) to (n1) now at 28(%esp) n1 => n2
 	jmp	L2
 L3:
 	movl	28(%esp),	%eax
