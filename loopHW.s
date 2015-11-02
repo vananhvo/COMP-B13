@@ -25,17 +25,17 @@ _main:
 	movl	%eax, 28(%esp)		#Copies %eax (n2) to (n1) now at 28(%esp)/@(old ebp - 4) Overwrite (n1) with (n2) 
 	jmp	L2			#Unconditional jump to L2
 L3:
-	movl	28(%esp),	%eax	#Copies (n2) to %eax
-	movl	%eax,	4(%esp)		#Copies %eax to @%esp+4/@%ebp-28 (above argv[1]) 
-	movl	$LC0,	(%esp)		#Copies the format string
+	movl	28(%esp), %eax		#Copies (n2) to %eax
+	movl	%eax, 4(%esp)		#Copies %eax to @%esp+4/@%ebp-28 (above argv[1]) 
+	movl	$LC0, (%esp)		#Copies the format string
 	call	_printf			#Call printf to product output
-	movl	28(%esp),	%eax	#Copies (n2) to %eax
-	addl	%eax,	%eax		#Add %eax to %eax (n2 + n2)
+	movl	28(%esp), %eax		#Copies (n2) to %eax
+	addl	%eax, %eax		#Add %eax to %eax (n2 + n2)
 	movl	%eax, 28(%esp)		#Copies the (n2 + n2) to @esp+28/@ebp-4
 L2:
-	movl	28(%esp),	%eax	#Copies (n2) to %eax
-	cmpl	20(%esp),	%eax	#(n2 - n2)
-	jle		L3		#Go to L3 if (n2 - n2 == 0) || (SF != OF)
+	movl	28(%esp), %eax		#Copies (n2) to %eax
+	cmpl	20(%esp), %eax		#(n2 - n2)
+	jle	L3			#Go to L3 if (n2 - n2 == 0) || (SF != OF)
 	movl	$0, %eax		#Else then copies 0, to %eax 
 	leave				#Reset %ebp & %esp to the (old ebp)
 	ret				#Return at the begin
